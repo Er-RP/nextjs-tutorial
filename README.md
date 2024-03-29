@@ -22,3 +22,17 @@ e.x :
 
 e.x :
 Navbar and Footer
+
+## Loading UI
+1. The special file **loading.js** helps you create meaningful Loading UI with React Suspense. With this convention, you can show an instant loading state from the server while the content of a route segment loads.
+
+e.x : 
+Added loading.js file at the app directory root level.
+
+## Error UI
+1. The **error.js **file convention allows you to gracefully handle unexpected runtime errors in nested routes.
+2. Error components must be Client Components.
+3. **error.js** boundaries do not catch errors thrown in **layout.js** or **template.js** components of the **same segment**. 
+
+## Not Found UI
+1. The **not-found** file is used to render UI when the notFound function is thrown within a route segment. Along with serving a custom UI
