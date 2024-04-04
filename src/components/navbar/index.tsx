@@ -1,17 +1,20 @@
-import React from 'react'
-import NavLinks from './links'
+import React from "react";
+import NavLinks from "./links";
+import Link from "next/link";
 
-type Props = {}
+type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <div>
-        <div>Logo</div>
-        <div>
-            <NavLinks/>
+    <div className="h-24 flex justify-between items-center">
+      <div className="text-xl font-bold p-1">
+        <Link href="/">
+        RP
+        </Link>
         </div>
+      <NavLinks />
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
