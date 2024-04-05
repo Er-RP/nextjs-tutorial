@@ -13,6 +13,7 @@
 body{
     color: #e8eaeb;
     max-width: 1536px;
-    margin: auto;
+    margin:0 auto;
+    padding:0 2% ;
     background-color: hsl(217, 33%, 17%);
 }

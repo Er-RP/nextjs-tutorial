@@ -36,3 +36,7 @@ Added loading.js file at the app directory root level.
 
 ## Not Found UI
 1. The **not-found** file is used to render UI when the notFound function is thrown within a route segment. Along with serving a custom UI
+
+## Images
+1. NextJS in build Image component will take care of the responsiveness.
+2. There are two ways to use Image component.
