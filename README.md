@@ -48,3 +48,7 @@ Added loading.js file at the app directory root level.
 
 ## Navigation
 1. By default Link component will prefetch the linked page's assets. It will leads to the performance issue when page have multiple links. we can disable it use **prefetch** attribute.
+
+## Fetch data on server side - API
+1. Componet should be async.
+2. React Suspense used to show fallback till data loading.
