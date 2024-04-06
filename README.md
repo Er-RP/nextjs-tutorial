@@ -45,3 +45,6 @@ Added loading.js file at the app directory root level.
 1. UseEffect - Update the state after initial rendering and show the client componet if state is true.
 2. Dynamic import the component with ssr false
 3. Using supressHydrationWarning attribute on HTML element
+
+## Navigation
+1. By default Link component will prefetch the linked page's assets. It will leads to the performance issue when page have multiple links. we can disable it use **prefetch** attribute.
