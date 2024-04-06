@@ -40,3 +40,8 @@ Added loading.js file at the app directory root level.
 ## Images
 1. NextJS in build Image component will take care of the responsiveness.
 2. There are two ways to use Image component.
+
+## Hydration Error and solutions
+1. UseEffect - Update the state after initial rendering and show the client componet if state is true.
+2. Dynamic import the component with ssr false
+3. Using supressHydrationWarning attribute on HTML element
