@@ -1,5 +1,11 @@
+import { Metadata } from 'next';
 import Image from 'next/image'
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: "About Page |Next JS 14 app",
+  description: "About Page in Next JS 14 app to learn",
+};
 
 const About = () => {
   return (
