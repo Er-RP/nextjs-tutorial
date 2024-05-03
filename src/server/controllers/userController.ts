@@ -15,12 +15,12 @@ export const getUsers = async () => {
     }
 }
 
-export const createUser = async (formData:any) => {
+export const createUser = async (isAdmin:boolean,formData:any) => {
 'use server';
 try {
 const {username,email,password}=Object.fromEntries(formData)
 await connectDb()
-return JSON.stringify(await User.create({username,email,password}))
+return JSON.stringify(await User.create({username,email,password,isAdmin}))
 } catch (error) {
    
     console.log("Error while creating User :",error)
