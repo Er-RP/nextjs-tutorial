@@ -14,3 +14,16 @@ export const getUsers = async () => {
         return handleError(error, "getUsers")
     }
 }
+
+export const createUser = async (formData:any) => {
+'use server';
+try {
+const {username,email,password}=Object.fromEntries(formData)
+await connectDb()
+return JSON.stringify(await User.create({username,email,password}))
+} catch (error) {
+   
+    console.log("Error while creating User :",error)
+    return "Failed to create User"
+}
+}
