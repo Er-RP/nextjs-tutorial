@@ -1,4 +1,6 @@
+
 import { createUser } from "@/server/controllers/userController";
+import SubmitButton from "./submitButton";
 
 const CreateUser = () => {
   const createAdminUser = createUser.bind(null,true)
@@ -8,10 +10,11 @@ const CreateUser = () => {
         <input type="text" placeholder="Username" name="username"/>
         <input type="text" placeholder="Email" name="email"/>
         <input type="password" placeholder="Password" name="password"/>
-        <button>Create</button>
+       <SubmitButton/>
       </form>
     </div>
   );
 };
 
 export default CreateUser;
+
