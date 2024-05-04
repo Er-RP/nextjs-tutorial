@@ -1,6 +1,7 @@
 import { INavLink } from "@/types/common";
 import React from "react";
 import NavLink from "./NavLink";
+import { auth, signOut } from "@/utils/auth";
 
 const navLinks: INavLink[] = [
   {
@@ -17,10 +18,15 @@ const navLinks: INavLink[] = [
   },
 ];
 
-const NavLinks = () => {
+const NavLinks = async () => {
+  const session = await  auth()
+  const handleLogout = async () =>{
+    "use server"
+    await signOut()
+  }
   //Dummy loggedin and admin
-  const isLoggedIn = true;
-  const isAdmin = true;
+  const isLoggedIn = session?.user ? true : false;
+  const isAdmin = false;
   return (
     <div className="hidden sm:flex gap-3 items-center">
       {navLinks.map((navLink) => (
@@ -29,7 +35,10 @@ const NavLinks = () => {
       {isLoggedIn ? (
         <>
           {isAdmin && <NavLink navLink={{ name: "Admin", path: "/admin" }} />}
+          <form action={handleLogout}>
           <button className="bg-text-light text-main p-2">Logout</button>
+          </form>
+          
         </>
       ) : (
         <NavLink navLink={{ name: "Login", path: "/login" }} />
