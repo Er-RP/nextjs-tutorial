@@ -12,7 +12,7 @@ export const generateMetadata = async ({params}:any) =>{
 
 
 const getUser = async ({id}:{id:any}) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+const res = await fetch(`http://127.0.0.1:3000/api/blog/${id}`,{cache:"no-store"})
   if(!res.ok){
     throw new Error("Something went wrong")
   }

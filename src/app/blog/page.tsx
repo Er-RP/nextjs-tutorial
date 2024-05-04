@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const getUsers = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users")
+  const res = await fetch("http://127.0.0.1:3000/api/blog",{cache:"no-store"})
   if(!res.ok){
     throw new Error("Something went wrong")
   }
