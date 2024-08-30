@@ -1,3 +1,5 @@
+'use server';
+
 import handleError from "@/utils/handleError"
 import User from "../models/userModel"
 import connectDb from "../utils/connectDb"
@@ -17,23 +19,28 @@ export const getUsers = async () => {
     }
 }
 
-export const createUser = async (isAdmin:boolean,formData:any) => {
-'use server';
+export const createUser = async (isAdmin:boolean,prevState:any,formData:any) => {
 try {
 const {username,email,password}=Object.fromEntries(formData)
 await connectDb()
-const user = await User.findOne({username,password})
-console.log("RP:",user?.length,typeof username,username,typeof password,password)
+const user = await User.findOne({$or:[{email},{username}]})
+if(user){
+    return JSON.stringify({
+        success: false,
+        messgae: "User Already Found"
+    })
+}
 return JSON.stringify(await User.create({username,email,password,isAdmin}))
 } catch (error) {
-   
-    console.log("Error while creating User :",error)
-    return "Failed to create User"
+    console.log("Error while creating User :",JSON.stringify(error))
+    return  JSON.stringify({
+        success: false,
+        messgae: "Error while creating user"
+    })
 }
 }
 
 export const login = async (formData:any) => {
-'use server';
 try {
 const {username,password}=Object.fromEntries(formData)
 await signIn("credentials",{username,password,redirect:false})

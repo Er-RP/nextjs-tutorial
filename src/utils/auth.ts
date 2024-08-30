@@ -3,7 +3,6 @@ import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials"
 import { doLogin } from "@/server/controllers/userController"
-import { redirect } from "next/navigation"
 export const { handlers :{GET,POST}, auth, signIn, signOut } = NextAuth(
     {
         providers:[
